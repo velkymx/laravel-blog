@@ -22,9 +22,17 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/manage/posts', function () {
-        return view('posts');
-    })->name('posts');
+    // Route::get('/manage/posts', function () {
+    //     return view('posts');
+    // })->name('posts');
+
+    Route::get(
+        '/manage/posts',
+        'App\Http\Controllers\Manage\PostController@index'
+    )->name('posts');
+
+
+    // Route::get('modeler/{process}', 'Process\ModelerController')->name('modeler.show')->middleware('can:edit-processes');
 });
 
 
